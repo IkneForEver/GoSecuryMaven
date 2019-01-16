@@ -1,3 +1,5 @@
+package components;
+
 import org.bytedeco.javacv.*;
 
 import static org.bytedeco.javacpp.opencv_core.IplImage;
@@ -5,15 +7,12 @@ import static org.bytedeco.javacpp.opencv_core.cvFlip;
 import static org.bytedeco.javacpp.opencv_imgcodecs.cvSaveImage;
 
 
-/**
- * Created by gtiwari on 1/3/2017.
- */
 
-public class Test implements Runnable {
+public class Webcam implements Runnable {
     final int INTERVAL = 100;///you may use interval
-    CanvasFrame canvas = new CanvasFrame("Web Cam");
+    CanvasFrame canvas = new CanvasFrame("Webcam");
 
-    public Test() {
+    public Webcam() {
         canvas.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
     }
 
@@ -34,8 +33,8 @@ public class Test implements Runnable {
                 cvFlip(img, img, 1);// l-r = 90_degrees_steps_anti_clockwise
 
                 //save
-                cvSaveImage((i++) + "-aa.jpg", img);
-
+                //cvSaveImage((i++) + "-aa.jpg", img);
+                
                 canvas.showImage(converter.convert(img));
 
                 Thread.sleep(INTERVAL);
@@ -44,11 +43,5 @@ public class Test implements Runnable {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        Test gs = new Test();
-        Thread th = new Thread(gs);
-        th.start();
-    }
 }
-
+   

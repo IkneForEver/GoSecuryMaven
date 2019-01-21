@@ -1,3 +1,4 @@
+components\Bouton.class
 app\launcher.class
-components\Webcam.class
 components\Fenetre.class
+actions\SaveWebcamImageAction.class

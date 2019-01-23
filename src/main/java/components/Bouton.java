@@ -15,8 +15,9 @@ public class Bouton extends JButton implements MouseListener {
 
 	public Bouton(String str) {
 		super();
+		this.setName(str);
 		this.setText(str);
-    	this.setBackground(Color.decode("#379EC1"));
+		this.setBackground(Color.decode("#379EC1"));
 		// Grâce à cette instruction, notre objet va s'écouter
 		// Dès qu'un événement de la souris sera intercepté, il en sera averti
 		this.addMouseListener(this);
@@ -33,17 +34,17 @@ public class Bouton extends JButton implements MouseListener {
 
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

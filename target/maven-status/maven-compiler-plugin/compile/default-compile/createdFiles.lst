@@ -1,4 +1,7 @@
 components\Bouton.class
 app\launcher.class
+actions\RedirectionPageConnexionAction.class
+components\PagePrincipale.class
 components\Fenetre.class
 actions\SaveWebcamImageAction.class
+components\PageConnexion.class

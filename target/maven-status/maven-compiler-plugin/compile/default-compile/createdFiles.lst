@@ -1,7 +1,12 @@
 components\Bouton.class
 app\launcher.class
+dal\PersistenceManager.class
 actions\RedirectionPageConnexionAction.class
+domain\Agent.class
 components\PagePrincipale.class
+dal\IDAO.class
+dal\DAOFactory.class
+components\PageConnexion.class
+dal\AgentDAO.class
 components\Fenetre.class
 actions\SaveWebcamImageAction.class
-components\PageConnexion.class

@@ -1,8 +1,7 @@
 package components;
 
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
@@ -16,7 +15,11 @@ public class Bouton extends JButton implements MouseListener {
 	public Bouton(String str) {
 		super();
 		this.setName(str);
-		this.setText(str);
+		
+		this.setText("<html>Text color: <font color='black'>+"
+				+ str +"</font></html>");
+		this.setSize(new Dimension(60,20));
+		
 		this.setBackground(Color.decode("#379EC1"));
 		// Grâce à cette instruction, notre objet va s'écouter
 		// Dès qu'un événement de la souris sera intercepté, il en sera averti

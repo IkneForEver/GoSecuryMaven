@@ -61,9 +61,5 @@ public class Agent{
 
 	public void setDateNaissance(Date dateNaissance) {
 		this.dateNaissance = dateNaissance;
-	}
-	
-	
-	
-	
+	}	
 }

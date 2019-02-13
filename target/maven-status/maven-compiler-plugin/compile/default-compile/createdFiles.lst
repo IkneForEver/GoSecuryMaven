@@ -1,4 +1,5 @@
 components\Bouton.class
+components\Image.class
 app\launcher.class
 dal\PersistenceManager.class
 actions\RedirectionPageConnexionAction.class
@@ -6,7 +7,15 @@ domain\Agent.class
 components\PagePrincipale.class
 dal\IDAO.class
 dal\DAOFactory.class
+services\AgentService.class
+dal\MaterielDAO.class
 components\PageConnexion.class
+domain\Materiel.class
+components\Checkbox.class
+services\EmpruntService.class
 dal\AgentDAO.class
 components\Fenetre.class
 actions\SaveWebcamImageAction.class
+dal\EmpruntDAO.class
+domain\Emprunt.class
+services\MaterielService.class

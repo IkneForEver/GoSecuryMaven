@@ -18,7 +18,7 @@ import components.PagePrincipale;
 
 public class SaveWebcamImageAction extends AbstractAction {
 
-	private final static String savePath = "src/main/java/ressources/screens/";
+	private final static String savePath = "src/ressources/screens/";
 	Fenetre fenetre;
 
 	/**
@@ -28,34 +28,34 @@ public class SaveWebcamImageAction extends AbstractAction {
 
 	private IplImage image;
 	private CanvasFrame canvasFrame;
-	private Thread th;
-	
+	private boolean estDansPagePrincipale = false;
 
-	public SaveWebcamImageAction(IplImage img, String libelle, CanvasFrame canvasFrame, Thread th) {
+	public SaveWebcamImageAction(IplImage img, String libelle, CanvasFrame canvasFrame) {
 		super();
-		//récupère le screen de la webcam
+		// récupère le screen de la webcam
 		this.image = img;
-		//on recupère la fenêtre pour pouvoir en changer le contenu
-		this.canvasFrame= canvasFrame;
-		//On réaffiche le libelle du bouton qui s'efface lors du setAction sur le bouton; 
+		// on recupère la fenêtre pour pouvoir en changer le contenu
+		this.canvasFrame = canvasFrame;
+		// On réaffiche le libelle du bouton qui s'efface lors du setAction sur le
+		// bouton;
 		putValue(NAME, libelle);
-		//on récupère le thread afin de pouvoir stopper la webcam.
-		this.th = th;
+		// on récupère le thread afin de pouvoir stopper la webcam.
 	}
-	
-	//action lors du clic sur le bouton
+
+	// action lors du clic sur le bouton
 	public void actionPerformed(ActionEvent e) {
-		
-		//on stoppe la webcam
-		th.interrupt();
-		//sauvegarde le screen dans le répertoire savePath
-		DateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
-		Date date = new Date();
-		cvSaveImage(savePath + dateFormat.format(date) + "_screen.jpg", image);
-		//redirection vers la page principale
-		canvasFrame.setContentPane(new PagePrincipale(canvasFrame,1));
-		canvasFrame.revalidate();
-		canvasFrame.repaint();
-	
+
+		if (!estDansPagePrincipale) {
+			estDansPagePrincipale = true;
+			// sauvegarde le screen dans le répertoire savePath
+			DateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+			Date date = new Date();
+			cvSaveImage(savePath + dateFormat.format(date) + "_screen.jpg", image);
+			// redirection vers la page principale
+			canvasFrame.setContentPane(new PagePrincipale(canvasFrame, 1));
+			canvasFrame.revalidate();
+			canvasFrame.repaint();
+		}
+
 	}
 }

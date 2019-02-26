@@ -32,6 +32,7 @@ public class Checkbox extends JCheckBox implements MouseListener {
 		this.materiel = materiel;
 		this.agent=agent;
 		this.setText(" "+ materiel.getQuantite());
+		init();
 	}
 
 	public void mouseClicked(MouseEvent e) {
@@ -72,6 +73,15 @@ public class Checkbox extends JCheckBox implements MouseListener {
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	public void init() {
+		if(empruntService.trouverEmprunt(agent,materiel)) {
+			this.setSelected(true);
+		}
+		else {
+			this.setSelected(false);
+		}
 	}
 
 }

@@ -12,11 +12,10 @@ public class Fenetre {
 	
 	public Fenetre() {
 		
-		canvas = new CanvasFrame("Webcam");
+		canvas = new CanvasFrame("Go Secury");
 		canvas.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
 		canvas.setMinimumSize(new Dimension(1200, 800));
-		canvas.setMaximumSize(new Dimension(1200, 800));
-		canvas.setVisible(true);
+		canvas.setVisible(	true);
 		canvas.add(new PageConnexion(canvas));
 	}
 

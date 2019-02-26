@@ -3,6 +3,7 @@ package components;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -30,7 +31,7 @@ public class PagePrincipale extends JPanel {
 	public static final AgentService agentService = new AgentService();
 
 	public static final MaterielService materielService = new MaterielService();
-	
+
 	private int idAgent;
 
 	private Agent agent;
@@ -48,37 +49,53 @@ public class PagePrincipale extends JPanel {
 		// L'objet servant à positionner les composants
 		GridBagConstraints gbc = new GridBagConstraints();
 
-		// On positionne la case de départ du composant
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		// La taille en hauteur et en largeur
-		gbc.gridheight = 1;
-		gbc.gridwidth = 1;
-
-		// Espace autour du composant
-		gbc.ipadx = 40;
-		gbc.ipady = 40;
 		Bouton bouton = new Bouton("Identification");
 		// on associe une action de redirection à notre bouton
 		bouton.setAction(new RedirectionPageConnexionAction(bouton.getName(), canvasFrame));
+
+		// On positionne la case de départ du composant
+		gbc.gridx = gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.weightx = 1;
+		// gbc.weighty= 1;
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+
+		// Espace autour du composant
+		gbc.insets = new Insets(10, 15, 0, 0); // Marge à gauche de 15 et marge au dessus de 10.
 		this.add(bouton, gbc);
 
 		Image photoAgent = new Image("profil_vide.jpg");
 
-		gbc.gridx = 2;
+		gbc.gridx = 1;
 		gbc.gridy = 0;
+	
+
+		// Espace autour du composant
+		// gbc.insets = new Insets(10, 0, 15, 0); // Marge à droite de 15 et marge au
+		// dessus de 10.
+		gbc.weightx = 0;
+		gbc.weighty = 0;
+		gbc.anchor = GridBagConstraints.FIRST_LINE_END;
+
 		this.add(photoAgent, gbc);
 
 		// Cette instruction informe le layout que c'est une fin de ligne
+
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+
 		Box infosAgent = Box.createVerticalBox();
 		afficherInfosAgent(infosAgent);
 
-		gbc.gridx = 2;
-		gbc.gridy = 2;
 		this.add(infosAgent, gbc);
-
-		gbc.gridx = 10;
-		gbc.gridy = 10;
+		
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		gbc.anchor = GridBagConstraints.PAGE_END;
 
 		JPanel materielsAgent = new JPanel();
 		afficherMaterielAgent(materielsAgent);
@@ -118,7 +135,7 @@ public class PagePrincipale extends JPanel {
 
 		for (Materiel m : materiel) {
 			c.add(new JLabel(m.getLibelle()));
-			c.add(new Checkbox(m,agent));
+			c.add(new Checkbox(m, agent));
 		}
 	}
 }

@@ -28,10 +28,9 @@ public class RedirectionPageConnexionAction extends AbstractAction {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-
-		canvasFrame.setContentPane(new PageConnexion(canvasFrame));
-		canvasFrame.revalidate();
-		canvasFrame.repaint();
+		
+		canvasFrame.dispose();
+		Fenetre fenetre = new Fenetre();	
 	}
 
 }

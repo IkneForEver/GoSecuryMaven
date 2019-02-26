@@ -29,12 +29,14 @@ public class PageConnexion extends JPanel implements Runnable {
 	public JPanel bandeau;
 	public Bouton bouton;
 	public Thread th;
+	public static   boolean estLance = false;
 
 	public PageConnexion(CanvasFrame canvasFrame) {
 		canvasFrame.setLayout(new BorderLayout());
-		if (th == null) {
+		if (!estLance) {
 			th = new Thread(this);
 			th.start();
+			estLance = true;
 		}
 		this.canvasFrame = canvasFrame;
 		bouton = new Bouton("S'identifier");
@@ -65,7 +67,7 @@ public class PageConnexion extends JPanel implements Runnable {
 
 				canvasFrame.showImage(converter.convert(img));
 
-				bouton.setAction(new SaveWebcamImageAction(img, bouton.getName(), canvasFrame));
+				bouton.setAction(new SaveWebcamImageAction(img, bouton.getName(), canvasFrame, th));
 				// bouton.repaint();
 
 				Thread.sleep(INTERVAL);

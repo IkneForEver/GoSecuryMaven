@@ -15,15 +15,10 @@ public class Checkbox extends JCheckBox implements MouseListener {
 	 * Generated uid
 	 */
 	private static final long serialVersionUID = 1L;
-
 	private static final MaterielService materielService = new MaterielService();
-	
 	private static final EmpruntService empruntService = new EmpruntService();
-
 	private boolean estCoche = false;
-	
 	private Materiel materiel;
-	
 	private Agent agent;
 
 	public Checkbox(Materiel materiel, Agent agent) {
@@ -38,14 +33,14 @@ public class Checkbox extends JCheckBox implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 
 		// Si la checkbox n'est pas cochée on incrémente la quantité du materiel
-		// correspondant
+		// correspondant et on crée un emprunt en base
 
 		if (!estCoche) {
 			materielService.decrementerMateriel(materiel);
 			empruntService.ajouterEmprunt(agent, materiel);
 			estCoche=true;
 		}
-		// Sinon on la décrémente
+		// Sinon on la décrémente et on supprime l'emprunt en base
 		else {
 			materielService.incrementerMateriel(materiel);
 			empruntService.supprimerEmprunt(agent, materiel);

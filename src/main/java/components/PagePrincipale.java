@@ -126,7 +126,7 @@ public class PagePrincipale extends JPanel {
 
 		GridLayout layoutMateriel = new GridLayout();
 		layoutMateriel.setRows(materiel.size());
-		layoutMateriel.setColumns(3);
+		layoutMateriel.setColumns(2);
 		// nombre de pixels d'espace entre les colonnes
 		layoutMateriel.setHgap(10);
 		// nombre de pixels d'espace entre les lignes

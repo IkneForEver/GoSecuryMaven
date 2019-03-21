@@ -67,7 +67,7 @@ public class PageConnexion extends JPanel implements Runnable {
 
 				canvasFrame.showImage(converter.convert(img));
 
-				bouton.setAction(new SaveWebcamImageAction(img, bouton.getName(), canvasFrame, th));
+				bouton.setAction(new SaveWebcamImageAction(img, bouton.getName(), canvasFrame));
 				// bouton.repaint();
 
 				Thread.sleep(INTERVAL);

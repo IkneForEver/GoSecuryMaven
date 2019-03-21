@@ -71,6 +71,7 @@ public class AgentDAO implements IDAO<Agent, Long> {
 				agent.setNom(rs.getString("nom"));
 				agent.setPrenom(rs.getString("prenom"));
 				agent.setDateNaissance(rs.getDate("date_de_naissance"));
+				agent.setPhoto(rs.getString("photo"));
 
 				liste.add(agent);
 			}
@@ -92,7 +93,7 @@ public class AgentDAO implements IDAO<Agent, Long> {
 				agent.setNom(rs.getString("nom"));
 				agent.setPrenom(rs.getString("prenom"));
 				agent.setDateNaissance(rs.getDate("date_de_naissance"));
-
+				agent.setPhoto(rs.getString("photo"));
 				st.close();
 				return agent;
 			}

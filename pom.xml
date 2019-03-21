@@ -5,12 +5,15 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>g.t</groupId>
-	<artifactId>JavaCV-Test</artifactId>
+	<artifactId>GoSecury</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
 	<properties>
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
+		<project.build.sourceEnconding>UTF-8</project.build.sourceEnconding>
+		<junit.jupiter.version>5.0.0-M3</junit.jupiter.version>
+		<junit.platform.version>1.0.0-M3</junit.platform.version>
 	</properties>
 
 	<dependencies>
@@ -24,6 +27,13 @@
 			<groupId>com.amazonaws</groupId>
 			<artifactId>aws-java-sdk</artifactId>
 			<version>1.11.490</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>

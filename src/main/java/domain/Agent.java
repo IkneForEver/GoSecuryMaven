@@ -24,6 +24,8 @@ public class Agent{
 	 */
 	private Date dateNaissance;
 	
+	private String photo;
+	
 	/*
 	 * Constructeur vide
 	 */
@@ -61,5 +63,13 @@ public class Agent{
 
 	public void setDateNaissance(Date dateNaissance) {
 		this.dateNaissance = dateNaissance;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}	
 }
